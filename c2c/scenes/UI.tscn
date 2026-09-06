@@ -1,0 +1,118 @@
+[gd_scene load_steps=2 format=3 uid="uid://superhot_ui_01"]
+
+[sub_resource type="GDScript" id="GDScript_ui"]
+script/source = "extends CanvasLayer
+
+@onready var lbl_title: Label = $HUD/Margin/VBox/StageTitle
+@onready var lbl_ammo: Label = $HUD/Margin/VBox/HBox/AmmoLabel
+@onready var lbl_weapon: Label = $HUD/Margin/VBox/HBox/WeaponLabel
+@onready var lbl_enemies: Label = $HUD/Margin/VBox/EnemyLabel
+@onready var banner: CenterContainer = $ClearBanner
+
+func _ready() -> void:
+	banner.visible = false
+	var player = get_tree().get_first_node_in_group(\"player\")
+	if player:
+		player.ammo_updated.connect(_on_ammo_updated)
+		player.weapon_updated.connect(_on_weapon_updated)
+
+func set_stage_title(t: String) -> void:
+	lbl_title.text = t
+
+func _on_ammo_updated(current: int, max_val: int) -> void:
+	var pips = \"\"
+	for i in range(current):
+		pips += \"■ \"
+	for i in range(max_val - current):
+		pips += \"□ \"
+	lbl_ammo.text = \"AMMO: \" + pips
+
+func _on_weapon_updated(w: String) -> void:
+	lbl_weapon.text = \"GUN: \" + w.to_upper()
+
+func update_enemies(count: int) -> void:
+	lbl_enemies.text = \"HOSTILES: \" + str(count)
+
+func show_clear_banner() -> void:
+	banner.visible = true
+"
+
+[node name="UI" type="CanvasLayer"]
+script = SubResource("GDScript_ui")
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="HUD"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+
+[node name="VBox" type="VBoxContainer" parent="HUD/Margin"]
+layout_mode = 2
+
+[node name="StageTitle" type="Label" parent="HUD/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.12, 0.14, 1)
+theme_override_font_sizes/font_size = 8
+text = "STAGE 1: THE FOYER"
+
+[node name="HBox" type="HBoxContainer" parent="HUD/Margin/VBox"]
+layout_mode = 2
+
+[node name="WeaponLabel" type="Label" parent="HUD/Margin/VBox/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 7
+text = "GUN: PISTOL"
+
+[node name="Spacer" type="Control" parent="HUD/Margin/VBox/HBox"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="AmmoLabel" type="Label" parent="HUD/Margin/VBox/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.1, 0.15, 1)
+theme_override_font_sizes/font_size = 7
+text = "AMMO: ■ ■ ■ ■ ■"
+
+[node name="EnemyLabel" type="Label" parent="HUD/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.1, 0.15, 1)
+theme_override_font_sizes/font_size = 7
+text = "HOSTILES: 2"
+
+[node name="ClearBanner" type="CenterContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ClearBanner"]
+layout_mode = 2
+
+[node name="BannerText" type="Label" parent="ClearBanner/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.1, 0.15, 1)
+theme_override_font_sizes/font_size = 18
+text = "SUPER. HOT."
+horizontal_alignment = 1
+
+[node name="SubText" type="Label" parent="ClearBanner/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.25, 1)
+theme_override_font_sizes/font_size = 8
+text = "ROOM CLEARED"
+horizontal_alignment = 1

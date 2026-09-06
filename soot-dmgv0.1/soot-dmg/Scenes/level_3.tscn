@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://b0d4lrn6tcy8d"]
+
+[ext_resource type="Script" uid="uid://civbkqo2ok3ts" path="res://scripts/level_1.gd" id="1_s8nj6"]
+[ext_resource type="PackedScene" uid="uid://b0scbkt1gouiv" path="res://Scenes/soot.tscn" id="2_vwg62"]
+[ext_resource type="PackedScene" uid="uid://c5lp3fwkp00ht" path="res://Scenes/platform.tscn" id="3_qf6rc"]
+[ext_resource type="Script" uid="uid://bv6jldkphaee4" path="res://scripts/door_l1.gd" id="4_53xsp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72e8h"]
+size = Vector2(320, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
+size = Vector2(12, 24)
+
+[node name="Level_3" type="Node2D" unique_id=292900175]
+script = ExtResource("1_s8nj6")
+
+[node name="Soot" parent="." unique_id=219471143 instance=ExtResource("2_vwg62")]
+
+[node name="Platforms" type="Node2D" parent="." unique_id=2002480760]
+
+[node name="Platform" parent="Platforms" unique_id=1094005010 instance=ExtResource("3_qf6rc")]
+position = Vector2(87, 140)
+size = Vector2(32, 8)
+
+[node name="Platform2" parent="Platforms" unique_id=743715241 instance=ExtResource("3_qf6rc")]
+position = Vector2(145, 116)
+size = Vector2(32, 8)
+
+[node name="Platform6" parent="Platforms" unique_id=171908438 instance=ExtResource("3_qf6rc")]
+position = Vector2(211, 133)
+size = Vector2(32, 8)
+
+[node name="Platform4" parent="Platforms" unique_id=1827236615 instance=ExtResource("3_qf6rc")]
+position = Vector2(271, 108)
+size = Vector2(32, 8)
+
+[node name="Ground" type="StaticBody2D" parent="Platforms" unique_id=48624275]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Ground" unique_id=2120442052]
+position = Vector2(160, 170)
+shape = SubResource("RectangleShape2D_72e8h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Ground" unique_id=1532051568]
+color = Color(0.25490198, 0.7764706, 0.95686275, 1)
+polygon = PackedVector2Array(0, 160, 0, 180, 320, 180, 320, 160)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1707725331]
+
+[node name="Area2D" type="Area2D" parent="Node2D" unique_id=1304208201]
+position = Vector2(24, -58)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D" unique_id=749691836]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D" unique_id=2093394525]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D2" type="Area2D" parent="Node2D" unique_id=1793815334]
+position = Vector2(45, 129)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D2" unique_id=1593916245]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D2" unique_id=78909629]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D3" type="Area2D" parent="Node2D" unique_id=1650825077]
+position = Vector2(56, 128)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D3" unique_id=1528374368]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D3" unique_id=1340553223]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D4" type="Area2D" parent="Node2D" unique_id=1503550941]
+position = Vector2(67, 129)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D4" unique_id=1241756971]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D4" unique_id=882832824]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D5" type="Area2D" parent="Node2D" unique_id=1406972850]
+position = Vector2(77, 129)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D5" unique_id=548929019]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D5" unique_id=881873900]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D6" type="Area2D" parent="Node2D" unique_id=479795714]
+position = Vector2(88, 128)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D6" unique_id=1810155307]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D6" unique_id=954217062]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D7" type="Area2D" parent="Node2D" unique_id=1001317978]
+position = Vector2(99, 129)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D7" unique_id=1062886134]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D7" unique_id=1514987872]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D8" type="Area2D" parent="Node2D" unique_id=1196374305]
+position = Vector2(109, 129)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D8" unique_id=773345733]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D8" unique_id=1134787842]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D9" type="Area2D" parent="Node2D" unique_id=1196533424]
+position = Vector2(120, 128)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D9" unique_id=925259033]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D9" unique_id=1196557560]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D10" type="Area2D" parent="Node2D" unique_id=409936236]
+position = Vector2(131, 129)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D10" unique_id=1333173639]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D10" unique_id=1468624479]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D11" type="Area2D" parent="Node2D" unique_id=517829393]
+position = Vector2(141, 129)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D11" unique_id=1048087782]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D11" unique_id=1636603128]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D12" type="Area2D" parent="Node2D" unique_id=531597088]
+position = Vector2(152, 128)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D12" unique_id=617243661]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D12" unique_id=690703186]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
+
+[node name="Area2D13" type="Area2D" parent="Node2D" unique_id=657800483]
+position = Vector2(163, 129)
+script = ExtResource("4_53xsp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D13" unique_id=90787713]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Node2D/Area2D13" unique_id=37892459]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)
