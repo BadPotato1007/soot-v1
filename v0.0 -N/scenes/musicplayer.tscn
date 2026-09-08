@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://ccij2dltfstgr"]
+
+[sub_resource type="GDScript" id="GDScript_8r0dx"]
+script/source = "extends Node
+
+@export var gemini_api_key: String = \"\"
+
+# Keyboard tracking variables
+var intensity: float = 0.0
+@export var hit_boost: float = 0.15   # Jump in metal intensity per key press
+@export var decay_rate: float = 0.3   # How fast it cools down per second
+
+@onready var http_calm = $HTTPCalm
+@onready var http_metal = $HTTPMetal
+@onready var audio_player = $AudioStreamPlayer
+
+var calm_stream: AudioStreamMP3 = null
+var metal_stream: AudioStreamMP3 = null
+
+func _ready():
+	if gemini_api_key == \"\":
+		print(\"ERROR: Click the PromptDJ node and paste your API Key in the Inspector on the right!\")
+		return
+		
+	# Give the AI time to generate the music (60 second timeout)
+	http_calm.timeout = 60.0
+	http_metal.timeout = 60.0
+	
+	http_calm.request_completed.connect(_on_calm_generated)
+	http_metal.request_completed.connect(_on_metal_generated)
+	
+	generate_music_from_gemini()
+
+func generate_music_from_gemini():
+	print(\"Contacting Gemini API (Lyria 3 Clip)... Generating audio. This usually takes 15-30 seconds...\")
+	
+	# 🟢 FIXED: The correct endpoint for the Interactions API
+	var url = \"https://generativelanguage.googleapis.com/v1beta/interactions\"
+	
+	# 🟢 FIXED: Passing the API key safely in the HTTP Headers
+	var headers = [
+		\"Content-Type: application/json\",
+		\"x-goog-api-key: \" + gemini_api_key
+	]
+	
+	# Request 1: Calm Jungle
+	var calm_prompt = {
+		\"model\": \"lyria-3-clip-preview\",
+		\"input\": \"Calm ambient soft synthesizer pads playing continuously over a fast 170bpm jungle breakbeat drum loop, instrumental.\"
+	}
+	http_calm.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(calm_prompt))
+	
+	# Request 2: Heavy Metal Jungle
+	var metal_prompt = {
+		\"model\": \"lyria-3-clip-preview\",
+		\"input\": \"Aggressive heavy metal distorted guitars and bass playing continuously over a fast 170bpm jungle breakbeat drum loop, instrumental.\"
+	}
+	http_metal.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(metal_prompt))
+
+func _on_calm_generated(result, response_code, headers, body):
+	if response_code == 200:
+		calm_stream = _parse_audio_response(body)
+		if calm_stream:
+			print(\"✅ Calm Track Downloaded!\")
+			check_start_playback()
+	else:
+		print(\"❌ Error generating Calm track. Code: \", response_code)
+		# Print the actual error Google gives us
+		print(\"Error Details: \", body.get_string_from_utf8()) 
+
+func _on_metal_generated(result, response_code, headers, body):
+	if response_code == 200:
+		metal_stream = _parse_audio_response(body)
+		if metal_stream:
+			print(\"✅ Metal Track Downloaded!\")
+			check_start_playback()
+	else:
+		print(\"❌ Error generating Metal track. Code: \", response_code)
+		# Print the actual error Google gives us
+		print(\"Error Details: \", body.get_string_from_utf8())
+
+func _parse_audio_response(body: PackedByteArray) -> AudioStreamMP3:
+	var json = JSON.parse_string(body.get_string_from_utf8())
+	var b64_audio = \"\"
+	
+	if json == null:
+		print(\"Failed to parse JSON response.\")
+		return null
+		
+	# 🟢 FIXED: Look for the audio base64 string in the new API format
+	if json.has(\"outputAudio\"):
+		b64_audio = json[\"outputAudio\"]
+	elif json.has(\"output_audio\"):
+		b64_audio = json[\"output_audio\"]
+	elif json.has(\"outputs\") and typeof(json[\"outputs\"]) == TYPE_ARRAY and json[\"outputs\"].size() > 0:
+		# Iterate over outputs to find the audio data block
+		for output in json[\"outputs\"]:
+			if output.has(\"audio\") and output[\"audio\"].has(\"data\"):
+				b64_audio = output[\"audio\"][\"data\"]
+				break
+				
+	if b64_audio == \"\":
+		print(\"Failed to find audio data in AI response. Dump: \", json)
+		return null
+		
+	# Convert base64 text into raw MP3 data readable by Godot
+	var stream = AudioStreamMP3.new()
+	stream.data = Marshalls.base64_to_raw(b64_audio)
+	stream.loop = true # Make it loop indefinitely
+	return stream
+
+func check_start_playback():
+	# Only start when BOTH AI tracks have finished generating
+	if calm_stream != null and metal_stream != null:
+		var sync = AudioStreamSynchronized.new()
+		sync.stream_count = 2
+		sync.set_sync_stream(0, calm_stream)
+		sync.set_sync_stream(1, metal_stream)
+		
+		audio_player.stream = sync
+		audio_player.play()
+		print(\"🎵 AI Music playing! CLICK THE GAME WINDOW AND START MASHING KEYS! 🎵\")
+
+func _input(event):
+	# React instantly when a keyboard key is physically pressed down
+	if event is InputEventKey and event.is_pressed() and not event.is_echo():
+		intensity += hit_boost
+		intensity = clamp(intensity, 0.0, 1.0)
+
+func _process(delta):
+	if audio_player.playing and audio_player.stream is AudioStreamSynchronized:
+		# Gradually decay the metal intensity back to calm over time
+		if intensity > 0.0:
+			intensity -= decay_rate * delta
+			intensity = clamp(intensity, 0.0, 1.0)
+			
+		var sync_stream = audio_player.stream as AudioStreamSynchronized
+		
+		# Track 0: Calm (Full volume at 0 intensity, quiet at 1)
+		sync_stream.set_sync_stream_volume(0, linear_to_db(1.0 - intensity))
+		
+		# Track 1: Metal (Quiet at 0 intensity, full volume at 1)
+		sync_stream.set_sync_stream_volume(1, linear_to_db(intensity))
+"
+
+[node name="Musicplayer" type="Node2D" unique_id=1083880505]
+script = SubResource("GDScript_8r0dx")
+gemini_api_key = "PUT YOUR KEY HERE"
+
+[node name="HTTPCalm" type="HTTPRequest" parent="." unique_id=1051847781]
+
+[node name="HTTPMetal" type="HTTPRequest" parent="." unique_id=1931160013]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=915084654]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yij5yr856xjh"
+path="res://.godot/imported/Almost New.mp3-a42c8d1c92e3b597630188694182283b.mp3str"
+
+[deps]
+
+source_file="res://assets/music/happy/Almost New.mp3"
+dest_files=["res://.godot/imported/Almost New.mp3-a42c8d1c92e3b597630188694182283b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

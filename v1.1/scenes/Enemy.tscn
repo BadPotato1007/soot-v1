@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dc8k6nqk1wnmp"]
+
+[ext_resource type="Script" uid="uid://dmrim2g5jfjk0" path="res://scripts/enemy.gd" id="1_enemy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1"]
+radius = 6.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=195828817 groups=["enemies"]]
+collision_layer = 2
+script = ExtResource("1_enemy")
+
+[node name="BodyVisual" type="ColorRect" parent="." unique_id=1981841408]
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+color = Color(1, 0.08, 0.15, 1)
+
+[node name="FacingIndicator" type="ColorRect" parent="." unique_id=658859803]
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 7.0
+offset_bottom = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1991679120]
+shape = SubResource("CircleShape2D_e1")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1832482383]
+target_position = Vector2(100, 0)
+collision_mask = 3

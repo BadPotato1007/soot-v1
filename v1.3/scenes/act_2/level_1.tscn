@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://fakecvkramfb"]
+
+[ext_resource type="PackedScene" uid="uid://66qfxvnugv8v" path="res://scenes/act_2/soot_act_2.tscn" id="1_l8c7p"]
+[ext_resource type="Script" uid="uid://lb8wrajf7vaa" path="res://scenes/act_2/level_1.gd" id="1_rlgcn"]
+[ext_resource type="Texture2D" uid="uid://r47ogvlswagj" path="res://assets/parallax-demon-woods-bg.png" id="2_w0nb8"]
+[ext_resource type="Texture2D" uid="uid://5mnnoq27cjhy" path="res://assets/parallax-demon-woods-far-trees.png" id="3_5qssr"]
+[ext_resource type="Texture2D" uid="uid://5pgrgyxl7og4" path="res://assets/parallax-demon-woods-mid-trees.png" id="4_cgeu4"]
+[ext_resource type="Texture2D" uid="uid://dcfepr2112rs4" path="res://assets/parallax-demon-woods-close-trees.png" id="5_4r8d0"]
+[ext_resource type="PackedScene" uid="uid://4ykn2apvdpnw" path="res://scenes/act_2/obstacle.tscn" id="6_5qssr"]
+[ext_resource type="Script" uid="uid://bay2h64s3okog" path="res://scripts/act2/spawner.gd" id="6_cgeu4"]
+[ext_resource type="Script" uid="uid://bdfy7w4k1fi3v" path="res://scripts/music_selector.gd" id="9_7t61s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gw6te"]
+size = Vector2(321, 20)
+
+[sub_resource type="TileSet" id="TileSet_gw6te"]
+
+[node name="Level1" type="Node2D" unique_id=1913650355]
+script = ExtResource("1_rlgcn")
+
+[node name="Soot_Act2" parent="." unique_id=461029021 instance=ExtResource("1_l8c7p")]
+position = Vector2(32, 9)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1723930598]
+position = Vector2(161, 170)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1308105470]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_gw6te")
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" unique_id=986514319]
+position = Vector2(-159, -170)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-18, 160, -18, 219, 356, 221, 356, 160)
+
+[node name="Backgrounds_Handler" type="Node2D" parent="." unique_id=598860958]
+
+[node name="Polygon2D" type="Polygon2D" parent="Backgrounds_Handler" unique_id=1053571769]
+position = Vector2(-1, 6)
+color = Color(0.08627451, 0.1882353, 0.23529412, 1)
+polygon = PackedVector2Array(-55, -3, -55, -79, 363, -79, 363, -1)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Backgrounds_Handler" unique_id=1735556461]
+z_index = -1
+position = Vector2(-5, 257)
+color = Color(0.08627451, 0.1882353, 0.23529412, 1)
+polygon = PackedVector2Array(-55, -3, -55, -79, 363, -79, 363, -1)
+
+[node name="Parallax2D" type="Parallax2D" parent="Backgrounds_Handler" unique_id=1710142291]
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds_Handler/Parallax2D" unique_id=2005244041]
+z_index = -1
+position = Vector2(160.5, 90.49999)
+scale = Vector2(0.6645833, 0.65808827)
+texture = ExtResource("2_w0nb8")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Backgrounds_Handler" unique_id=2061046393]
+scroll_offset = Vector2(-556, 1)
+repeat_size = Vector2(393.395, 0)
+autoscroll = Vector2(-20, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds_Handler/Parallax2D3" unique_id=431097094]
+z_index = -1
+position = Vector2(160.5, 90.49999)
+scale = Vector2(0.6645833, 0.65808827)
+texture = ExtResource("3_5qssr")
+
+[node name="Parallax2D4" type="Parallax2D" parent="Backgrounds_Handler" unique_id=1263223184]
+scroll_offset = Vector2(36, 0)
+repeat_size = Vector2(393.01, 0)
+autoscroll = Vector2(-40, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds_Handler/Parallax2D4" unique_id=1133772033]
+z_index = -1
+position = Vector2(160.5, 90.49999)
+scale = Vector2(0.6645833, 0.65808827)
+texture = ExtResource("4_cgeu4")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Backgrounds_Handler" unique_id=2088698754]
+scroll_offset = Vector2(36, 0)
+repeat_size = Vector2(393.305, 0)
+autoscroll = Vector2(-80, 0)
+repeat_times = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Backgrounds_Handler/Parallax2D2" unique_id=209248742]
+z_index = -1
+position = Vector2(160.5, 90.49999)
+scale = Vector2(0.6645833, 0.65808827)
+texture = ExtResource("5_4r8d0")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=644569072]
+position = Vector2(307, 151)
+script = ExtResource("6_cgeu4")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=768228602]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1562127836]
+tile_set = SubResource("TileSet_gw6te")
+
+[node name="obstacle" parent="." unique_id=1328010699 instance=ExtResource("6_5qssr")]
+position = Vector2(307, 156)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=793485803]
+position = Vector2(160, 90)
+
+[node name="MusicSelector" type="Node2D" parent="." unique_id=1410561817]
+script = ExtResource("9_7t61s")
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

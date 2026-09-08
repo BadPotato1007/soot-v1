@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://diydwcq14vppj"]
+
+[ext_resource type="Texture2D" uid="uid://183hmtrgn2ur" path="res://assets/character_template.png" id="1_b7ifd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3il35"]
+atlas = ExtResource("1_b7ifd")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxy1f"]
+atlas = ExtResource("1_b7ifd")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sikum"]
+atlas = ExtResource("1_b7ifd")
+region = Rect2(96, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb0os"]
+atlas = ExtResource("1_b7ifd")
+region = Rect2(144, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ag747"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3il35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxy1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sikum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb0os")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Soot" type="CharacterBody2D" unique_id=1671153948]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1782947436]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ag747")
+frame = 1
+frame_progress = 0.32584196
+flip_v = true

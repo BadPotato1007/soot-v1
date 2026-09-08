@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dqsqwafqjg511"]
+
+[ext_resource type="Script" uid="uid://bot8itkrmk7cq" path="res://scenes/pre_credit.gd" id="1_42kqf"]
+[ext_resource type="FontFile" uid="uid://cy363p0hlepls" path="res://assets/m6x11.ttf" id="1_nsugf"]
+
+[node name="Control" type="Control" unique_id=1681891225]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_42kqf")
+
+[node name="Label" type="Label" parent="." unique_id=976125458]
+layout_mode = 0
+offset_top = 29.0
+offset_right = 320.0
+offset_bottom = 213.0
+theme_override_fonts/font = ExtResource("1_nsugf")
+theme_override_font_sizes/font_size = 15
+text = "sometimes its not about your mind being weak
+its when you've been strong for so long
+so, so, so, so long,
+so long
+that you can't feel weak.
+you act like you're strong but you're not
+who are you? who do you think you are?
+
+everything seems random at first
+
+too bad you don't realise it is."
+horizontal_alignment = 1

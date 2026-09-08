@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://wu1kwdkhq7xl"]
+
+[ext_resource type="Script" uid="uid://3c22vwe4w37h" path="res://scripts/soot_rev.gd" id="1_3ctk4"]
+[ext_resource type="Texture2D" uid="uid://c3yt5s70b4v12" path="res://Assets/character/16x16 Run-Sheet.png" id="2_8ktrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvity"]
+size = Vector2(11, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwmwi"]
+atlas = ExtResource("2_8ktrf")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3140r"]
+atlas = ExtResource("2_8ktrf")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssdsx"]
+atlas = ExtResource("2_8ktrf")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5pdw"]
+atlas = ExtResource("2_8ktrf")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pavv"]
+atlas = ExtResource("2_8ktrf")
+region = Rect2(96, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kukd"]
+atlas = ExtResource("2_8ktrf")
+region = Rect2(120, 48, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_72e8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwmwi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3140r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssdsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5pdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pavv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kukd")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Soot" type="CharacterBody2D" unique_id=219471143]
+script = ExtResource("1_3ctk4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=597054642]
+shape = SubResource("RectangleShape2D_vvity")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1371516998]
+texture_filter = 1
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_72e8h")
+animation = &"walk"
+flip_v = true

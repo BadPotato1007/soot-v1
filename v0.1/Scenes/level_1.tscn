@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://m0on3rerr817"]
+
+[ext_resource type="Script" uid="uid://civbkqo2ok3ts" path="res://scripts/level_1.gd" id="1_hn12h"]
+[ext_resource type="PackedScene" uid="uid://b0scbkt1gouiv" path="res://Scenes/soot.tscn" id="2_7p6j4"]
+[ext_resource type="PackedScene" uid="uid://c5lp3fwkp00ht" path="res://Scenes/platform.tscn" id="3_rka8t"]
+[ext_resource type="Script" uid="uid://bv6jldkphaee4" path="res://scripts/door_l1.gd" id="4_ihfcg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72e8h"]
+size = Vector2(320, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn12h"]
+size = Vector2(12, 24)
+
+[node name="Level_1" type="Node2D" unique_id=292900175]
+script = ExtResource("1_hn12h")
+
+[node name="Soot" parent="." unique_id=219471143 instance=ExtResource("2_7p6j4")]
+
+[node name="Platforms" type="Node2D" parent="." unique_id=2002480760]
+
+[node name="Platform" parent="Platforms" unique_id=1094005010 instance=ExtResource("3_rka8t")]
+position = Vector2(87, 140)
+size = Vector2(32, 8)
+
+[node name="Platform2" parent="Platforms" unique_id=743715241 instance=ExtResource("3_rka8t")]
+position = Vector2(157, 113)
+size = Vector2(32, 8)
+
+[node name="Platform3" parent="Platforms" unique_id=48338000 instance=ExtResource("3_rka8t")]
+position = Vector2(222, 88)
+size = Vector2(32, 8)
+
+[node name="Platform4" parent="Platforms" unique_id=1827236615 instance=ExtResource("3_rka8t")]
+position = Vector2(284, 108)
+size = Vector2(32, 8)
+
+[node name="Ground" type="StaticBody2D" parent="Platforms" unique_id=48624275]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platforms/Ground" unique_id=2120442052]
+position = Vector2(160, 170)
+shape = SubResource("RectangleShape2D_72e8h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Platforms/Ground" unique_id=1532051568]
+color = Color(0.25490198, 0.7764706, 0.95686275, 1)
+polygon = PackedVector2Array(0, 160, 0, 180, 320, 180, 320, 160)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1304208201]
+script = ExtResource("4_ihfcg")
+next_level = "uid://dffft48sj6eq5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=749691836]
+position = Vector2(285, 92)
+shape = SubResource("RectangleShape2D_hn12h")
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D" unique_id=2093394525]
+color = Color(1, 1, 0, 1)
+polygon = PackedVector2Array(279, 80, 291, 80, 291, 104, 279, 104)

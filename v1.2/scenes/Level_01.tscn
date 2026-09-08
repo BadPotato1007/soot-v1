@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://bgjxlm0hiu3or"]
+
+[ext_resource type="Script" uid="uid://cghfnu1hmnhul" path="res://scripts/game_level.gd" id="1_level"]
+[ext_resource type="PackedScene" uid="uid://ci0cte5vpl834" path="res://scenes/Player-n.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://dc8k6nqk1wnmp" path="res://scenes/Enemy.tscn" id="3_enemy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(320, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vert"]
+size = Vector2(10, 180)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pillar"]
+size = Vector2(20, 60)
+
+[node name="Level_01" type="Node2D" unique_id=872944748]
+script = ExtResource("1_level")
+
+[node name="FloorBackground" type="ColorRect" parent="." unique_id=1432014174]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.92, 0.93, 0.94, 1)
+
+[node name="Walls" type="Node2D" parent="." unique_id=1619878362 groups=["walls"]]
+
+[node name="TopWall" type="StaticBody2D" parent="Walls" unique_id=1744831449 groups=["walls"]]
+position = Vector2(160, 5)
+
+[node name="Visual" type="ColorRect" parent="Walls/TopWall" unique_id=32498167]
+offset_left = -160.0
+offset_top = -5.0
+offset_right = 160.0
+offset_bottom = 5.0
+color = Color(0.12, 0.12, 0.14, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="Walls/TopWall" unique_id=893544438]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="BottomWall" type="StaticBody2D" parent="Walls" unique_id=677538431 groups=["walls"]]
+position = Vector2(160, 175)
+
+[node name="Visual" type="ColorRect" parent="Walls/BottomWall" unique_id=564368497]
+offset_left = -160.0
+offset_top = -5.0
+offset_right = 160.0
+offset_bottom = 5.0
+color = Color(0.12, 0.12, 0.14, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="Walls/BottomWall" unique_id=1750674124]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="LeftWall" type="StaticBody2D" parent="Walls" unique_id=166996964 groups=["walls"]]
+position = Vector2(5, 90)
+
+[node name="Visual" type="ColorRect" parent="Walls/LeftWall" unique_id=1679708739]
+offset_left = -5.0
+offset_top = -90.0
+offset_right = 5.0
+offset_bottom = 90.0
+color = Color(0.12, 0.12, 0.14, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="Walls/LeftWall" unique_id=147685626]
+shape = SubResource("RectangleShape2D_vert")
+
+[node name="RightWall" type="StaticBody2D" parent="Walls" unique_id=1718473093 groups=["walls"]]
+position = Vector2(315, 90)
+
+[node name="Visual" type="ColorRect" parent="Walls/RightWall" unique_id=1213177866]
+offset_left = -5.0
+offset_top = -90.0
+offset_right = 5.0
+offset_bottom = 90.0
+color = Color(0.12, 0.12, 0.14, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="Walls/RightWall" unique_id=2104982206]
+shape = SubResource("RectangleShape2D_vert")
+
+[node name="Pillar" type="StaticBody2D" parent="Walls" unique_id=1892755762 groups=["walls"]]
+position = Vector2(160, 90)
+
+[node name="Visual" type="ColorRect" parent="Walls/Pillar" unique_id=732620195]
+offset_left = -10.0
+offset_top = -30.0
+offset_right = 10.0
+offset_bottom = 30.0
+color = Color(0.12, 0.12, 0.14, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="Walls/Pillar" unique_id=463168173]
+shape = SubResource("RectangleShape2D_pillar")
+
+[node name="Player" parent="." unique_id=129937329 instance=ExtResource("2_player")]
+position = Vector2(60, 90)
+
+[node name="Enemy1" parent="." unique_id=1949298759 instance=ExtResource("3_enemy")]
+position = Vector2(250, 50)
+
+[node name="Enemy2" parent="." unique_id=174343055 instance=ExtResource("3_enemy")]
+position = Vector2(250, 130)

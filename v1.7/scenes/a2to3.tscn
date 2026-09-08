@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://c6bacd7yu8dgo"]
+
+[ext_resource type="Script" uid="uid://ciaskeb7myyay" path="res://scenes/a_2to3.gd" id="1_5j7ia"]
+[ext_resource type="FontFile" uid="uid://cy363p0hlepls" path="res://assets/m6x11.ttf" id="1_h51fy"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=217058909]
+script = ExtResource("1_5j7ia")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=945982936]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1481010180]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 111.0
+offset_top = 113.0
+offset_right = -104.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_h51fy")
+text = "let me fix you"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1427098440]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 122.0
+offset_top = 117.0
+offset_right = -93.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_h51fy")
+text = "let me fix you"
+
+[node name="Timer" type="Timer" parent="." unique_id=764327853]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

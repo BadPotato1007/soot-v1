@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cu47pl4nbtmn8"]
+
+[ext_resource type="FontFile" uid="uid://cy363p0hlepls" path="res://assets/m6x11.ttf" id="1_0bpdh"]
+
+[node name="Credits" type="Control" unique_id=499370196]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=610564345]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -47.5
+offset_right = 97.0
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 16
+text = "ErisEsra() - Character Sprite
+Kevin's Mom's House - Tileset
+Aethrall - Parallax Background 
+Nekuromi - Tree
+Swirly1007 - CRT
+Kevin MacLeod - OST
+Daniel Linssen - FONT
+You - For Playing <3"
+
+[node name="Label2" type="Label" parent="." unique_id=822203124]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 32.0
+offset_right = 87.0
+offset_bottom = 54.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 24
+text = "ACKNOWLEDGEMENTS"

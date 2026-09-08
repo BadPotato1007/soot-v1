@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cy8imcflj0thu"]
+
+[ext_resource type="Script" uid="uid://bvvleos8m1qgg" path="res://marquee_control.gd" id="1_l6twg"]
+
+[node name="MarqueeContainer" type="Control" unique_id=129912488]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 155.0
+offset_right = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l6twg")
+
+[node name="Label" type="Label" parent="." unique_id=1810869400]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=2147108191]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-155, 3, -156, 63, 166, 63, 166, 1, -159, -5)
+
+[node name="Polygon2D2" type="Polygon2D" parent="." unique_id=2041678391]
+position = Vector2(-1, 134.19116)
+scale = Vector2(1, 1.8382355)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-155, 3, -156, 63, 166, 63, 166, 1, -159, -5)

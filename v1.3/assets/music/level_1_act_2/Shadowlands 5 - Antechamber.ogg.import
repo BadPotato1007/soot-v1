@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cws5mxnm1vxha"
+path="res://.godot/imported/Shadowlands 5 - Antechamber.ogg-a23ce9534f1d2a92e1f005824b6fea69.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/level_1_act_2/Shadowlands 5 - Antechamber.ogg"
+dest_files=["res://.godot/imported/Shadowlands 5 - Antechamber.ogg-a23ce9534f1d2a92e1f005824b6fea69.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

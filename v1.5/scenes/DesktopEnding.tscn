@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bcbh4ol0twdo2"]
+
+[ext_resource type="Script" uid="uid://bwka182hl7wps" path="res://scripts/desktop_ending.gd" id="1_desktop"]
+[ext_resource type="PackedScene" uid="uid://ci5cm45yty5ty" path="res://scenes/soot running.tscn" id="2_ytoqh"]
+[ext_resource type="FontFile" uid="uid://cy363p0hlepls" path="res://assets/m6x11.ttf" id="3_e7d1x"]
+[ext_resource type="Script" uid="uid://jv2g51leea1v" path="res://scenes/DEspawner.gd" id="4_qqssh"]
+
+[node name="DesktopEnding" type="Control" unique_id=366282950]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_desktop")
+character_scene = ExtResource("2_ytoqh")
+
+[node name="TealBackground" type="ColorRect" parent="." unique_id=1139403214]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.07, 0.42, 0.42, 1)
+
+[node name="InstructionLabel" type="Label" parent="." unique_id=1315302067]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = 17.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8)
+theme_override_fonts/font = ExtResource("3_e7d1x")
+theme_override_font_sizes/font_size = 7
+text = "please don't take me there"
+horizontal_alignment = 1
+
+[node name="RecycleBin" type="Control" parent="." unique_id=34624478]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 25.0
+offset_top = 65.0
+offset_right = 75.0
+offset_bottom = 125.0
+mouse_filter = 2
+
+[node name="BinLid" type="ColorRect" parent="RecycleBin" unique_id=209783174]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 44.0
+offset_bottom = 11.0
+mouse_filter = 2
+color = Color(0.28, 0.3, 0.35, 1)
+
+[node name="BinBody" type="ColorRect" parent="RecycleBin" unique_id=1948579598]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 12.0
+offset_right = 40.0
+offset_bottom = 44.0
+mouse_filter = 2
+color = Color(0.9, 0.92, 0.95, 1)
+
+[node name="BinStripe" type="ColorRect" parent="RecycleBin" unique_id=1628619783]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 17.0
+offset_right = 34.0
+offset_bottom = 39.0
+mouse_filter = 2
+color = Color(0.2, 0.5, 0.5, 1)
+
+[node name="BinLabel" type="Label" parent="RecycleBin" unique_id=1259651847]
+layout_mode = 0
+offset_top = 46.0
+offset_right = 50.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_e7d1x")
+theme_override_font_sizes/font_size = 6
+text = "Recycle Bin"
+horizontal_alignment = 1
+
+[node name="BlackScreen" type="ColorRect" parent="." unique_id=1160921997]
+visible = false
+z_index = 200
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=786814273]
+script = ExtResource("4_qqssh")
+
+[node name="Timer" type="Timer" parent="Node2D" unique_id=1584973340]

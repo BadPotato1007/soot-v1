@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://f4601wll4sun"]
+
+[ext_resource type="FontFile" uid="uid://cy363p0hlepls" path="res://assets/m6x11.ttf" id="1_85md4"]
+
+[node name="spawning_label" type="Label" unique_id=2049791751]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = -118.0
+offset_bottom = 7.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.8)
+theme_override_fonts/font = ExtResource("1_85md4")
+theme_override_font_sizes/font_size = 7
+text = "TAKE HIM THERE"
+horizontal_alignment = 1

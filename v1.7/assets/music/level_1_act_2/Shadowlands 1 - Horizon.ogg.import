@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7834khhk76ts"
+path="res://.godot/imported/Shadowlands 1 - Horizon.ogg-7c36360c161213197a99ce0e59f7bf00.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/level_1_act_2/Shadowlands 1 - Horizon.ogg"
+dest_files=["res://.godot/imported/Shadowlands 1 - Horizon.ogg-7c36360c161213197a99ce0e59f7bf00.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
