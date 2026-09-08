@@ -1,0 +1,40 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="soot dmg"
+run/main_scene="res://Scenes/act_1/level_1.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+run/max_fps=165
+config/icon="res://Assets/icon.svg"
+
+[autoload]
+
+GameManager="*uid://comfn82vl82lw"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=1920
+window/size/window_height_override=1080
+window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
