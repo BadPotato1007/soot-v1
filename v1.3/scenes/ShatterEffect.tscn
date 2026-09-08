@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bdxvbklbovjee"]
+
+[ext_resource type="Script" uid="uid://dts7wyret3eqq" path="res://scripts/shatter_effect.gd" id="1_shatter"]
+
+[node name="ShatterEffect" type="Node2D" unique_id=734994891]
+script = ExtResource("1_shatter")

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cdsr127intkos"]
+
+[node name="Node2D" type="CanvasLayer" unique_id=1187677793]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1241606484]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label5" type="Label" parent="." unique_id=1757383559]
+offset_left = 110.0
+offset_top = 106.0
+offset_right = 195.0
+offset_bottom = 129.0
+theme_override_font_sizes/font_size = 13
+text = "let me fix you"
+
+[node name="Label4" type="Label" parent="." unique_id=1876442748]
+offset_left = 112.0
+offset_top = 106.0
+offset_right = 197.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 13
+text = "let me fix you"

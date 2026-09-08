@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ccij2dltfstgr"]
+
+[ext_resource type="Script" uid="uid://2jddkbc6ghwp" path="res://scenes/PromptDJ.gd" id="1_7ixm2"]
+
+[node name="Musicplayer" type="Node2D" unique_id=1083880505]
+script = ExtResource("1_7ixm2")
+gemini_api_key = "PUT YOUR KEY HERE"
+[node name="HTTPCalm" type="HTTPRequest" parent="." unique_id=1051847781]
+
+[node name="HTTPMetal" type="HTTPRequest" parent="." unique_id=1931160013]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=915084654]

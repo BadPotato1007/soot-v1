@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c5lp3fwkp00ht"]
+
+[ext_resource type="Script" uid="uid://cuetrvr45j1v4" path="res://scripts/platform_l1.gd" id="1_mi635"]
+[ext_resource type="PackedScene" uid="uid://dwwrtpbnver5f" path="res://Scenes/act_1/master_tilemap_act1.tscn" id="2_n5262"]
+
+[node name="Platform" type="StaticBody2D" unique_id=1094005010]
+script = ExtResource("1_mi635")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2106958540]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1698115693]
+
+[node name="MasterTilemapAct1" parent="." unique_id=332702486 instance=ExtResource("2_n5262")]

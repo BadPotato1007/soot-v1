@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dqn0fmx8e5p81"
+path="res://.godot/imported/Teddy Bear Waltz.ogg-ce2951c4a2d8a12d4776e4860bced9de.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/ending/Teddy Bear Waltz.ogg"
+dest_files=["res://.godot/imported/Teddy Bear Waltz.ogg-ce2951c4a2d8a12d4776e4860bced9de.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

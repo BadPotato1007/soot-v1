@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b3mbsalx21oei"]
+
+[ext_resource type="Script" uid="uid://djwkwa3rt6hfl" path="res://pause_menu.gd" id="1_myx47"]
+[ext_resource type="Shader" uid="uid://c7e5d6amfcl7s" path="res://scenes/pause_menu.gdshader" id="2_5d2l8"]
+[ext_resource type="FontFile" uid="uid://cy363p0hlepls" path="res://assets/m6x11.ttf" id="2_kukqi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5d2l8"]
+shader = ExtResource("2_5d2l8")
+shader_parameter/blur_amount = 2.5
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1667589467]
+process_mode = 3
+script = ExtResource("1_myx47")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=536217872]
+material = SubResource("ShaderMaterial_5d2l8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5019608)
+
+[node name="MenuContainer" type="VBoxContainer" parent="." unique_id=511121132]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -24.0
+offset_right = 26.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Button" parent="MenuContainer" unique_id=1014433414]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kukqi")
+text = "Resume"
+
+[node name="Quit" type="Button" parent="MenuContainer" unique_id=1851056640]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kukqi")
+text = "Quit"
+
+[connection signal="pressed" from="MenuContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MenuContainer/Quit" to="." method="_on_quit_pressed"]

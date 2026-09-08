@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bu66jdufsa1m5"]
+
+[ext_resource type="Script" uid="uid://crkbcr81up365" path="res://scripts/void_ending.gd" id="1_void"]
+[ext_resource type="PackedScene" uid="uid://diydwcq14vppj" path="res://scenes/soot falling.tscn" id="2_q80ph"]
+[ext_resource type="PackedScene" uid="uid://ci5cm45yty5ty" path="res://scenes/soot running.tscn" id="2_rlfnh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bin"]
+size = Vector2(36, 40)
+
+[node name="VoidEnding" type="Node2D" unique_id=559672183]
+script = ExtResource("1_void")
+normal_scene = ExtResource("2_rlfnh")
+drift_scene = ExtResource("2_rlfnh")
+fall_scene = ExtResource("2_q80ph")
+
+[node name="DesktopLayer" type="CanvasLayer" parent="." unique_id=1376200126]
+visible = false
+
+[node name="Desktop" type="Control" parent="DesktopLayer" unique_id=1481925063]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TealBackground" type="ColorRect" parent="DesktopLayer/Desktop" unique_id=1268696023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.08, 0.44, 0.44, 1)
+
+[node name="InstructionLabel" type="Label" parent="DesktopLayer/Desktop" unique_id=1682303459]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 10.0
+offset_right = 100.0
+offset_bottom = 24.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.75)
+theme_override_font_sizes/font_size = 7
+text = "DRAG SPRITE TO RECYCLE BIN"
+horizontal_alignment = 1
+
+[node name="RecycleBin" type="Area2D" parent="DesktopLayer/Desktop" unique_id=1232126125]
+position = Vector2(40, 90)
+
+[node name="Collision" type="CollisionShape2D" parent="DesktopLayer/Desktop/RecycleBin" unique_id=46658854]
+shape = SubResource("RectangleShape2D_bin")
+
+[node name="BinVisual" type="ColorRect" parent="DesktopLayer/Desktop/RecycleBin" unique_id=1438733990]
+offset_left = -12.0
+offset_top = -14.0
+offset_right = 12.0
+offset_bottom = 14.0
+color = Color(0.9, 0.9, 0.95, 1)
+
+[node name="BinLines" type="ColorRect" parent="DesktopLayer/Desktop/RecycleBin" unique_id=1608078667]
+offset_left = -7.0
+offset_top = -9.0
+offset_right = 7.0
+offset_bottom = 9.0
+color = Color(0.2, 0.5, 0.5, 1)
+
+[node name="BinLid" type="ColorRect" parent="DesktopLayer/Desktop/RecycleBin" unique_id=582870541]
+offset_left = -15.0
+offset_top = -18.0
+offset_right = 15.0
+offset_bottom = -14.0
+color = Color(0.3, 0.3, 0.35, 1)
+
+[node name="BinLabel" type="Label" parent="DesktopLayer/Desktop/RecycleBin" unique_id=766032537]
+offset_left = -30.0
+offset_top = 18.0
+offset_right = 30.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 6
+text = "Recycle Bin"
+horizontal_alignment = 1

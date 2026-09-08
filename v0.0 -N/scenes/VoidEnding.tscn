@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bu66jdufsa1m5"]
+
+[ext_resource type="Script" uid="uid://crkbcr81up365" path="res://scripts/void_ending.gd" id="1_void"]
+[ext_resource type="PackedScene" uid="uid://ci5cm45yty5ty" path="res://scenes/soot running.tscn" id="2_5ih0e"]
+[ext_resource type="PackedScene" uid="uid://diydwcq14vppj" path="res://scenes/soot falling.tscn" id="2_q80ph"]
+[ext_resource type="FontFile" uid="uid://cy363p0hlepls" path="res://assets/m6x11.ttf" id="4_rlfnh"]
+
+[node name="VoidEnding" type="Node2D" unique_id=133890146]
+script = ExtResource("1_void")
+normal_scene = ExtResource("2_5ih0e")
+drift_scene = ExtResource("2_5ih0e")
+fall_scene = ExtResource("2_q80ph")
+
+[node name="VoidTextOverlay" type="CanvasLayer" parent="." unique_id=257319891]
+
+[node name="Center" type="CenterContainer" parent="VoidTextOverlay" unique_id=72957768]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 16.0
+offset_bottom = 46.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="BigLabel" type="Label" parent="VoidTextOverlay/Center" unique_id=1426100035]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.98, 0.98, 1, 0.95)
+theme_override_fonts/font = ExtResource("4_rlfnh")
+theme_override_font_sizes/font_size = 14
+text = "SET YOURSELF FREE"
+horizontal_alignment = 1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://jrteis24lx8j"
+path="res://.godot/imported/Shadowlands 7 - Codex.ogg-8eb2e1cf1f848d9be85c744ad3b58fe6.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/level_1_act_2/Shadowlands 7 - Codex.ogg"
+dest_files=["res://.godot/imported/Shadowlands 7 - Codex.ogg-8eb2e1cf1f848d9be85c744ad3b58fe6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

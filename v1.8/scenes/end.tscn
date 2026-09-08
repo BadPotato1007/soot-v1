@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://gpv4qpw7npm"]
+
+[ext_resource type="Script" uid="uid://b1dfm6h7qpx6i" path="res://scenes/end.gd" id="1_mwn6m"]
+
+[node name="end" type="Control" unique_id=623435319]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mwn6m")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=208746765]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-1, -21, -1, 245, 320, 245, 321, 2, 320, 0, 320, -20)

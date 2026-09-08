@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://4ykn2apvdpnw"]
+
+[ext_resource type="Script" uid="uid://0tqih6m3j1nt" path="res://scripts/act2/obstacle.gd" id="1_msatb"]
+[ext_resource type="Texture2D" uid="uid://c634pvnujx4d5" path="res://assets/necro_tree.png" id="2_msatb"]
+
+[node name="obstacle" type="AnimatableBody2D" unique_id=1860127695]
+collision_layer = 3
+script = ExtResource("1_msatb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1714900235]
+scale = Vector2(0.8000012, 0.8165885)
+polygon = PackedVector2Array(-10, -11, -7, -11, -7, -12, -5, -12, -5, -13, 9, -13, 9, -12, 10, -12, 10, -11, 12, -11, 12, 9, 13, 9, 13, 11, 14, 11, 14, 12, 15, 12, 15, 13, 16, 13, 16, 16, -16, 16, -16, 13, -15, 13, -15, 11, -13, 11, -13, 10, -12, 10, -12, 9, -11, 9, -11, 6, -10, 6)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1367604604]
+texture_filter = 1
+scale = Vector2(0.8000012, 0.8165885)
+texture = ExtResource("2_msatb")
